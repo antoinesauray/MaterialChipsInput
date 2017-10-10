@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pchmn.materialchips.SingleChipsInput;
+import com.pchmn.materialchips.SingleChipInput;
 import com.pchmn.materialchips.model.ChipInterface;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
@@ -26,7 +26,7 @@ public class ContactListActivity extends AppCompatActivity {
 
     private static final String TAG = ContactListActivity.class.toString();
     @BindView(R.id.chips_input)
-    SingleChipsInput mChipsInput;
+    SingleChipInput mChipsInput;
     @BindView(R.id.validate) Button mValidateButton;
     @BindView(R.id.chip_list) TextView mChipListText;
     private List<ContactChip> mContactList;
@@ -52,7 +52,7 @@ public class ContactListActivity extends AppCompatActivity {
                 });
 
         // chips listener
-        mChipsInput.addChipsListener(new SingleChipsInput.ChipsListener() {
+        mChipsInput.addChipsListener(new SingleChipInput.ChipsListener() {
             @Override
             public void onChipAdded(ChipInterface chip, int newSize) {
                 Log.e(TAG, "chip added, " + newSize);

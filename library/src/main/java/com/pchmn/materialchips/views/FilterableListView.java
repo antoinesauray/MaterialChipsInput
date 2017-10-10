@@ -16,7 +16,7 @@ import android.view.animation.AlphaAnimation;
 import android.widget.Filter;
 import android.widget.RelativeLayout;
 
-import com.pchmn.materialchips.SingleChipsInput;
+import com.pchmn.materialchips.SingleChipInput;
 import com.pchmn.materialchips.R;
 import com.pchmn.materialchips.R2;
 import com.pchmn.materialchips.adapter.FilterableAdapter;
@@ -37,7 +37,7 @@ public class FilterableListView extends RelativeLayout {
     private FilterableAdapter mAdapter;
     private List<? extends ChipInterface> mFilterableList;
     // others
-    private SingleChipsInput mChipsInput;
+    private SingleChipInput mChipsInput;
 
     public FilterableListView(Context context) {
         super(context);
@@ -58,7 +58,7 @@ public class FilterableListView extends RelativeLayout {
         setVisibility(GONE);
     }
 
-    public void build(List<? extends ChipInterface> filterableList, SingleChipsInput chipsInput, ColorStateList backgroundColor, ColorStateList textColor) {
+    public void build(List<? extends ChipInterface> filterableList, SingleChipInput chipsInput, ColorStateList backgroundColor, ColorStateList textColor) {
         mFilterableList = filterableList;
         mChipsInput = chipsInput;
 

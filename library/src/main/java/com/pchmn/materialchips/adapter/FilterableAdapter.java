@@ -12,7 +12,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
 
-import com.pchmn.materialchips.SingleChipsInput;
+import com.pchmn.materialchips.SingleChipInput;
 import com.pchmn.materialchips.R;
 import com.pchmn.materialchips.model.ChipInterface;
 import com.pchmn.materialchips.util.ColorUtil;
@@ -40,7 +40,7 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private List<ChipInterface> mChipList = new ArrayList<>();
     private List<ChipInterface> mFilteredList = new ArrayList<>();
     private ChipFilter mFilter;
-    private SingleChipsInput mChipsInput;
+    private SingleChipInput mChipsInput;
     private LetterTileProvider mLetterTileProvider;
     private ColorStateList mBackgroundColor;
     private ColorStateList mTextColor;
@@ -54,7 +54,7 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public FilterableAdapter(Context context,
                              RecyclerView recyclerView,
                              List<? extends ChipInterface> chipList,
-                             SingleChipsInput chipsInput,
+                             SingleChipInput chipsInput,
                              ColorStateList backgroundColor,
                              ColorStateList textColor) {
         mContext = context;
@@ -82,7 +82,7 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         mTextColor = textColor;
         mChipsInput = chipsInput;
 
-        mChipsInput.addChipsListener(new SingleChipsInput.ChipsListener() {
+        mChipsInput.addChipsListener(new SingleChipInput.ChipsListener() {
             @Override
             public void onChipAdded(ChipInterface chip, int newSize) {
                 removeChip(chip);
