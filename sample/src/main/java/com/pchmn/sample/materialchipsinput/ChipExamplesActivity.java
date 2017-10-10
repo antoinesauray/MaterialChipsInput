@@ -4,11 +4,10 @@ import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.pchmn.materialchips.ChipView;
+import com.pchmn.materialchips.SingleChipView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,13 +16,20 @@ public class ChipExamplesActivity extends AppCompatActivity {
 
     private static final String TAG = ChipExamplesActivity.class.toString();
     @BindView(R.id.layout) LinearLayout mLayout;
-    @BindView(R.id.chip1) ChipView mChip1;
-    @BindView(R.id.chip2) ChipView mChip2;
-    @BindView(R.id.chip3) ChipView mChip3;
-    @BindView(R.id.chip4) ChipView mChip4;
-    @BindView(R.id.chip5) ChipView mChip5;
-    @BindView(R.id.chip6) ChipView mChip6;
-    @BindView(R.id.chip7) ChipView mChip7;
+    @BindView(R.id.chip1)
+    SingleChipView mChip1;
+    @BindView(R.id.chip2)
+    SingleChipView mChip2;
+    @BindView(R.id.chip3)
+    SingleChipView mChip3;
+    @BindView(R.id.chip4)
+    SingleChipView mChip4;
+    @BindView(R.id.chip5)
+    SingleChipView mChip5;
+    @BindView(R.id.chip6)
+    SingleChipView mChip6;
+    @BindView(R.id.chip7)
+    SingleChipView mChip7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,12 +91,12 @@ public class ChipExamplesActivity extends AppCompatActivity {
 
         // programmatically
         Uri uri = null;
-        ChipView chipView1 = new ChipView(this);
+        SingleChipView chipView1 = new SingleChipView(this);
         chipView1.setLabel("Pritesh");
         chipView1.setPadding(2,2,2,2);
         chipView1.setHasAvatarIcon(true);
 
-        ChipView chipView2 = new ChipView(this);
+        SingleChipView chipView2 = new SingleChipView(this);
         chipView2.setLabel("Test 1");
         chipView2.setChipBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
         chipView2.setLabelColor(ContextCompat.getColor(this, R.color.colorPrimary));

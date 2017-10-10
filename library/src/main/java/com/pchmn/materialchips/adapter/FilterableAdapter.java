@@ -5,28 +5,24 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.pchmn.materialchips.ChipsInput;
+import com.pchmn.materialchips.SingleChipsInput;
 import com.pchmn.materialchips.R;
 import com.pchmn.materialchips.model.ChipInterface;
 import com.pchmn.materialchips.util.ColorUtil;
 import com.pchmn.materialchips.util.LetterTileProvider;
-import com.pchmn.materialchips.util.ViewUtil;
 
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,7 +40,7 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private List<ChipInterface> mChipList = new ArrayList<>();
     private List<ChipInterface> mFilteredList = new ArrayList<>();
     private ChipFilter mFilter;
-    private ChipsInput mChipsInput;
+    private SingleChipsInput mChipsInput;
     private LetterTileProvider mLetterTileProvider;
     private ColorStateList mBackgroundColor;
     private ColorStateList mTextColor;
@@ -58,7 +54,7 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public FilterableAdapter(Context context,
                              RecyclerView recyclerView,
                              List<? extends ChipInterface> chipList,
-                             ChipsInput chipsInput,
+                             SingleChipsInput chipsInput,
                              ColorStateList backgroundColor,
                              ColorStateList textColor) {
         mContext = context;
@@ -86,7 +82,7 @@ public class FilterableAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         mTextColor = textColor;
         mChipsInput = chipsInput;
 
-        mChipsInput.addChipsListener(new ChipsInput.ChipsListener() {
+        mChipsInput.addChipsListener(new SingleChipsInput.ChipsListener() {
             @Override
             public void onChipAdded(ChipInterface chip, int newSize) {
                 removeChip(chip);

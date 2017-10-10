@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="ChipView">
+    <declare-styleable name="SingleChipView">
         <attr name="label" format="string" />
         <attr name="labelColor" format="color" />
         <attr name="hasAvatarIcon" format="boolean" />
@@ -12,7 +12,7 @@
         <attr name="backgroundColor" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="ChipsInput">
+    <declare-styleable name="SingleChipsInput">
         <attr name="hint" format="string" />
         <attr name="hintColor" format="color" />
         <attr name="textColor" format="color" />
