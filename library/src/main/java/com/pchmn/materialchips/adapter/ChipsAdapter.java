@@ -1,6 +1,7 @@
 package com.pchmn.materialchips.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -270,13 +271,29 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         detailedChipView.fadeIn();
     }
 
+    private void disableEditText(EditText editText) {
+        editText.setFocusable(true);
+        editText.setFocusableInTouchMode(true);
+        editText.setEnabled(false);
+        editText.setCursorVisible(false);
+        editText.setKeyListener(null);
+        editText.setBackgroundColor(Color.TRANSPARENT);
+    }
+
+    private void enableEditText(EditText editText) {
+        editText.setFocusable(true);
+        editText.setFocusableInTouchMode(true);
+        editText.setEnabled(true);
+        editText.setCursorVisible(true);
+    }
+
     public void setFilterableListView(FilterableListView filterableListView) {
         if(mEditText != null)
             mEditText.setFilterableListView(filterableListView);
     }
 
     public void addChip(ChipInterface chip) {
-        if(!listContains(mChipList, chip)) {
+        if(mChipList.size() ==0 && !listContains(mChipList, chip)) {
             mChipList.add(chip);
             // notify listener
             mChipsInput.onChipAdded(chip, mChipList.size());
@@ -284,8 +301,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mEditText.setHint(null);
             // reset text
             mEditText.setText(null);
+
             // refresh data
             notifyItemInserted(mChipList.size());
+            disableEditText(mEditText);
         }
     }
 
@@ -299,6 +318,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mEditText.setHint(mHintLabel);
         // refresh data
         notifyDataSetChanged();
+        enableEditText(mEditText);
     }
 
     public void removeChip(int position) {
@@ -312,6 +332,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mEditText.setHint(mHintLabel);
         // refresh data
         notifyDataSetChanged();
+        enableEditText(mEditText);
     }
 
     public void removeChipById(Object id) {
@@ -329,6 +350,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mEditText.setHint(mHintLabel);
         // refresh data
         notifyDataSetChanged();
+        enableEditText(mEditText);
     }
 
     public void removeChipByLabel(String label) {
@@ -346,6 +368,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mEditText.setHint(mHintLabel);
         // refresh data
         notifyDataSetChanged();
+        enableEditText(mEditText);
     }
 
     public void removeChipByInfo(String info) {
@@ -363,6 +386,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mEditText.setHint(mHintLabel);
         // refresh data
         notifyDataSetChanged();
+        enableEditText(mEditText);
     }
 
     public List<ChipInterface> getChipList() {
