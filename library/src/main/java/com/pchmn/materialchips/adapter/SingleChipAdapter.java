@@ -274,8 +274,6 @@ public class SingleChipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         editText.setFocusableInTouchMode(true);
         editText.setEnabled(false);
         editText.setCursorVisible(false);
-        editText.setKeyListener(null);
-        editText.setBackgroundColor(Color.TRANSPARENT);
     }
 
     private void enableEditText(EditText editText) {
