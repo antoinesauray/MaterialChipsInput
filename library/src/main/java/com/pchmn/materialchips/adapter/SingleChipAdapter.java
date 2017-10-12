@@ -224,7 +224,7 @@ public class SingleChipAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     detailedChipView.setOnDeleteClicked(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            removeChip(position);
+                            //removeChip(position);
                             detailedChipView.fadeOut();
                         }
                     });
